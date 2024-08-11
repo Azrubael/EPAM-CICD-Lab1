@@ -19,13 +19,14 @@ jobs:
       - name: Build image
         run: |
             # minikube image build -t devopshint/node-app:latest .
+            set -e # Exit immediately if a command exits with a non-zero status
             export SHELL=/bin/bash
             eval $(minikube -p minikube docker-env)
             docker build -f ./Dockerfile -t devopshint/node-app:latest .
             echo -n "verifying images:"
             docker images         
       - name: Deploy to minikube
-        run:
+        run: |
           kubectl apply -f k8s-node-app.yaml
           kubectl wait --for=condition=ready pod -l app=nodejs-app
       - name: Test service URLs
