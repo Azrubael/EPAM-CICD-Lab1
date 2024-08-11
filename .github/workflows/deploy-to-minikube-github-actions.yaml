@@ -27,8 +27,9 @@ jobs:
       - name: Deploy to minikube
         run:
           kubectl apply -f k8s-node-app.yaml
+          kubectl wait --for=condition=ready pod -l app=nodejs-app
       - name: Test service URLs
         run: |
             minikube service list
-            minikube service nodejs-app --url
+            minikube service nodejs-app-svc --url
 
