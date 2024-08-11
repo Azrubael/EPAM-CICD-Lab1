@@ -1,10 +1,10 @@
 name: Deploy to Minikube using GitHub Actions
 
 on:
-  - push
-  # push:
-  #   branches:
-  #     - main
+  # - push
+  push:
+    branches:
+      - main
 
 jobs:
   job1:
