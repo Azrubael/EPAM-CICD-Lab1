@@ -109,3 +109,23 @@ Hello from Docker!
     $ minikube delete --all
 
 
+**To check if the container works well**
+# Build the Docker image
+```bash
+docker build -t azw_app . && docker run --rm -d --name azw_container -p 3000:3000 azw_app
+```
+    ...
+ => [internal] load build context                               0.1s
+ => => transferring context: 263.24kB                           0.0s
+ => [2/6] WORKDIR /usr/src/app                                  1.0s
+ => [3/6] COPY package*.json ./                                 0.1s
+ => [4/6] RUN npm install                                       4.3s
+ => [5/6] RUN npm install express                               2.5s 
+ => [6/6] COPY . .                                              0.1s 
+ => exporting to image                                          0.3s 
+ => => exporting layers                                         0.3s 
+ => => writing image sha256:
+fa6d68b8143f0b9a59472e7250b99f1205b2af7c68fe82e8ea93            0.0s 
+ => => naming to docker.io/library/az_webapp                    0.0s
+Running on http://0.0.0.0:3000
+
