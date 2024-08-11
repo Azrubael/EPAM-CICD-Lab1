@@ -18,6 +18,7 @@ jobs:
         run: minikube kubectl -- get po -A
       - name: Build image
         run: |
+            # Variant
             # minikube image build -t devopshint/node-app:latest .
             set -e # Exit immediately if a command exits with a non-zero status
             export SHELL=/bin/bash

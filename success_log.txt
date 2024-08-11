@@ -1,0 +1,314 @@
+﻿2024-08-11T16:10:14.6996580Z Current runner version: '2.317.0'
+2024-08-11T16:10:14.7018355Z ##[group]Operating System
+2024-08-11T16:10:14.7018981Z Ubuntu
+2024-08-11T16:10:14.7019338Z 22.04.4
+2024-08-11T16:10:14.7019725Z LTS
+2024-08-11T16:10:14.7020048Z ##[endgroup]
+2024-08-11T16:10:14.7020383Z ##[group]Runner Image
+2024-08-11T16:10:14.7020883Z Image: ubuntu-22.04
+2024-08-11T16:10:14.7021270Z Version: 20240804.1.0
+2024-08-11T16:10:14.7022273Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20240804.1/images/ubuntu/Ubuntu2204-Readme.md
+2024-08-11T16:10:14.7023714Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20240804.1
+2024-08-11T16:10:14.7024567Z ##[endgroup]
+2024-08-11T16:10:14.7024973Z ##[group]Runner Image Provisioner
+2024-08-11T16:10:14.7025478Z 2.0.374.1
+2024-08-11T16:10:14.7025807Z ##[endgroup]
+2024-08-11T16:10:14.7026766Z ##[group]GITHUB_TOKEN Permissions
+2024-08-11T16:10:14.7028685Z Contents: read
+2024-08-11T16:10:14.7029123Z Metadata: read
+2024-08-11T16:10:14.7029768Z Packages: read
+2024-08-11T16:10:14.7030222Z ##[endgroup]
+2024-08-11T16:10:14.7033204Z Secret source: Actions
+2024-08-11T16:10:14.7033795Z Prepare workflow directory
+2024-08-11T16:10:14.7644111Z Prepare all required actions
+2024-08-11T16:10:14.7793701Z Getting action download info
+2024-08-11T16:10:14.9257785Z Download action repository 'actions/checkout@v4' (SHA:692973e3d937129bcbf40652eb9f2f61becf3332)
+2024-08-11T16:10:15.0269895Z Download action repository 'medyagh/setup-minikube@latest' (SHA:d8c0eb871f6f455542491d86a574477bd3894533)
+2024-08-11T16:10:15.5696101Z Complete job name: build Node.js Docker Image and deploy to minikube
+2024-08-11T16:10:15.6566634Z ##[group]Run actions/checkout@v4
+2024-08-11T16:10:15.6567496Z with:
+2024-08-11T16:10:15.6568293Z   repository: Azrubael/EPAM-CICD-Lab1
+2024-08-11T16:10:15.6569327Z   token: ***
+2024-08-11T16:10:15.6569839Z   ssh-strict: true
+2024-08-11T16:10:15.6570432Z   ssh-user: git
+2024-08-11T16:10:15.6570841Z   persist-credentials: true
+2024-08-11T16:10:15.6571255Z   clean: true
+2024-08-11T16:10:15.6571724Z   sparse-checkout-cone-mode: true
+2024-08-11T16:10:15.6572181Z   fetch-depth: 1
+2024-08-11T16:10:15.6572493Z   fetch-tags: false
+2024-08-11T16:10:15.6572951Z   show-progress: true
+2024-08-11T16:10:15.6573316Z   lfs: false
+2024-08-11T16:10:15.6573611Z   submodules: false
+2024-08-11T16:10:15.6574055Z   set-safe-directory: true
+2024-08-11T16:10:15.6574463Z ##[endgroup]
+2024-08-11T16:10:15.8875025Z Syncing repository: Azrubael/EPAM-CICD-Lab1
+2024-08-11T16:10:15.8877026Z ##[group]Getting Git version info
+2024-08-11T16:10:15.8878134Z Working directory is '/home/runner/work/EPAM-CICD-Lab1/EPAM-CICD-Lab1'
+2024-08-11T16:10:15.8879222Z [command]/usr/bin/git version
+2024-08-11T16:10:15.8886422Z git version 2.46.0
+2024-08-11T16:10:15.8912444Z ##[endgroup]
+2024-08-11T16:10:15.8930560Z Temporarily overriding HOME='/home/runner/work/_temp/a79556a0-0b9e-4608-8c92-d1cd8bfdbcb8' before making global git config changes
+2024-08-11T16:10:15.8933290Z Adding repository directory to the temporary git global config as a safe directory
+2024-08-11T16:10:15.8942762Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/EPAM-CICD-Lab1/EPAM-CICD-Lab1
+2024-08-11T16:10:15.8985433Z Deleting the contents of '/home/runner/work/EPAM-CICD-Lab1/EPAM-CICD-Lab1'
+2024-08-11T16:10:15.8989281Z ##[group]Initializing the repository
+2024-08-11T16:10:15.8994675Z [command]/usr/bin/git init /home/runner/work/EPAM-CICD-Lab1/EPAM-CICD-Lab1
+2024-08-11T16:10:15.9077524Z hint: Using 'master' as the name for the initial branch. This default branch name
+2024-08-11T16:10:15.9079443Z hint: is subject to change. To configure the initial branch name to use in all
+2024-08-11T16:10:15.9081398Z hint: of your new repositories, which will suppress this warning, call:
+2024-08-11T16:10:15.9082605Z hint:
+2024-08-11T16:10:15.9083721Z hint: 	git config --global init.defaultBranch <name>
+2024-08-11T16:10:15.9084816Z hint:
+2024-08-11T16:10:15.9085934Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2024-08-11T16:10:15.9088334Z hint: 'development'. The just-created branch can be renamed via this command:
+2024-08-11T16:10:15.9089615Z hint:
+2024-08-11T16:10:15.9090329Z hint: 	git branch -m <name>
+2024-08-11T16:10:15.9092072Z Initialized empty Git repository in /home/runner/work/EPAM-CICD-Lab1/EPAM-CICD-Lab1/.git/
+2024-08-11T16:10:15.9098986Z [command]/usr/bin/git remote add origin https://github.com/Azrubael/EPAM-CICD-Lab1
+2024-08-11T16:10:15.9136846Z ##[endgroup]
+2024-08-11T16:10:15.9137773Z ##[group]Disabling automatic garbage collection
+2024-08-11T16:10:15.9139808Z [command]/usr/bin/git config --local gc.auto 0
+2024-08-11T16:10:15.9170031Z ##[endgroup]
+2024-08-11T16:10:15.9170848Z ##[group]Setting up auth
+2024-08-11T16:10:15.9176538Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-08-11T16:10:15.9207431Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-08-11T16:10:15.9523944Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-08-11T16:10:15.9554144Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-08-11T16:10:15.9790474Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2024-08-11T16:10:15.9837895Z ##[endgroup]
+2024-08-11T16:10:15.9839390Z ##[group]Fetching the repository
+2024-08-11T16:10:15.9847929Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +fa3450d36bcb40685925ef8cc73acd8e1f644547:refs/remotes/origin/main
+2024-08-11T16:10:16.2577685Z From https://github.com/Azrubael/EPAM-CICD-Lab1
+2024-08-11T16:10:16.2579037Z  * [new ref]         fa3450d36bcb40685925ef8cc73acd8e1f644547 -> origin/main
+2024-08-11T16:10:16.2609016Z ##[endgroup]
+2024-08-11T16:10:16.2609669Z ##[group]Determining the checkout info
+2024-08-11T16:10:16.2611006Z ##[endgroup]
+2024-08-11T16:10:16.2615818Z [command]/usr/bin/git sparse-checkout disable
+2024-08-11T16:10:16.2655203Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2024-08-11T16:10:16.2682818Z ##[group]Checking out the ref
+2024-08-11T16:10:16.2686188Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2024-08-11T16:10:16.2731234Z Switched to a new branch 'main'
+2024-08-11T16:10:16.2734583Z branch 'main' set up to track 'origin/main'.
+2024-08-11T16:10:16.2740263Z ##[endgroup]
+2024-08-11T16:10:16.2773860Z [command]/usr/bin/git log -1 --format='%H'
+2024-08-11T16:10:16.2796771Z 'fa3450d36bcb40685925ef8cc73acd8e1f644547'
+2024-08-11T16:10:16.3092244Z ##[group]Run medyagh/setup-minikube@latest
+2024-08-11T16:10:16.3092867Z with:
+2024-08-11T16:10:16.3093170Z   start: true
+2024-08-11T16:10:16.3093501Z   cache: true
+2024-08-11T16:10:16.3093941Z   minikube-version: latest
+2024-08-11T16:10:16.3094289Z   wait: all
+2024-08-11T16:10:16.3094611Z ##[endgroup]
+2024-08-11T16:10:17.3122699Z [command]/usr/bin/chmod +x /home/runner/work/_temp/844205d4-13eb-47ed-891e-5667dcde204b
+2024-08-11T16:10:17.4490205Z [command]/home/runner/bin/minikube version --short
+2024-08-11T16:10:17.4908217Z v1.33.1
+2024-08-11T16:10:18.7333090Z Received 142606336 of 284625147 (50.1%), 136.0 MBs/sec
+2024-08-11T16:10:18.7961706Z Received 117440512 of 504590682 (23.3%), 112.0 MBs/sec
+2024-08-11T16:10:19.3486862Z Cache Size: ~271 MB (284625147 B)
+2024-08-11T16:10:19.3557133Z [command]/usr/bin/tar -xf /home/runner/work/_temp/2404b6c5-2481-47dd-8cb7-22daee28d01e/cache.tzst -P -C /home/runner/work/EPAM-CICD-Lab1/EPAM-CICD-Lab1 --use-compress-program unzstd
+2024-08-11T16:10:19.7333716Z Received 284625147 of 284625147 (100.0%), 135.7 MBs/sec
+2024-08-11T16:10:19.7965749Z Received 306184192 of 504590682 (60.7%), 145.9 MBs/sec
+2024-08-11T16:10:20.3168743Z Cache restored successfully
+2024-08-11T16:10:20.7969929Z Received 487813466 of 504590682 (96.7%), 155.0 MBs/sec
+2024-08-11T16:10:20.9214296Z Cache Size: ~481 MB (504590682 B)
+2024-08-11T16:10:20.9248458Z [command]/usr/bin/tar -xf /home/runner/work/_temp/502150b8-a499-4af5-9e48-211c18719f49/cache.tzst -P -C /home/runner/work/EPAM-CICD-Lab1/EPAM-CICD-Lab1 --use-compress-program unzstd
+2024-08-11T16:10:21.7979338Z Received 504590682 of 504590682 (100.0%), 120.2 MBs/sec
+2024-08-11T16:10:21.8673583Z Cache restored successfully
+2024-08-11T16:10:21.9663396Z [command]/home/runner/bin/minikube start --wait all
+2024-08-11T16:10:22.0021835Z * minikube v1.33.1 on Ubuntu 22.04
+2024-08-11T16:10:22.3977737Z * Automatically selected the docker driver. Other choices: podman, none, ssh
+2024-08-11T16:10:22.4470707Z * Using Docker driver with root privileges
+2024-08-11T16:10:22.4480577Z * Starting "minikube" primary control-plane node in "minikube" cluster
+2024-08-11T16:10:22.4488042Z * Pulling base image v0.0.44 ...
+2024-08-11T16:10:31.4210041Z * Creating docker container (CPUs=2, Memory=3900MB) ...
+2024-08-11T16:10:47.0278727Z * Preparing Kubernetes v1.30.0 on Docker 26.1.1 ...
+2024-08-11T16:10:56.8964333Z   - Generating certificates and keys ...
+2024-08-11T16:10:56.8980920Z   - Booting up control plane ...
+2024-08-11T16:10:56.8997715Z   - Configuring RBAC rules ...
+2024-08-11T16:10:56.9020733Z * Configuring bridge CNI (Container Networking Interface) ...
+2024-08-11T16:11:10.0781054Z * Verifying Kubernetes components...
+2024-08-11T16:11:10.1009600Z   - Using image gcr.io/k8s-minikube/storage-provisioner:v5
+2024-08-11T16:11:10.7096394Z * Enabled addons: default-storageclass, storage-provisioner
+2024-08-11T16:11:21.4321274Z E0811 16:11:21.431536    1779 pod_ready.go:66] WaitExtra: waitPodCondition: error getting pod "coredns-7db6d8ff4d-gsx5l" in "kube-system" namespace (skipping!): pods "coredns-7db6d8ff4d-gsx5l" not found
+2024-08-11T16:11:22.9817958Z * Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+2024-08-11T16:11:22.9932496Z [command]/home/runner/bin/minikube version --short
+2024-08-11T16:11:23.0233018Z v1.33.1
+2024-08-11T16:11:23.0483801Z ##[group]Run minikube kubectl -- get po -A
+2024-08-11T16:11:23.0484722Z [36;1mminikube kubectl -- get po -A[0m
+2024-08-11T16:11:23.0698478Z shell: /usr/bin/bash -e {0}
+2024-08-11T16:11:23.0699092Z ##[endgroup]
+2024-08-11T16:11:23.6799209Z NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE
+2024-08-11T16:11:23.6800978Z kube-system   coredns-7db6d8ff4d-qhx26           1/1     Running   0          13s
+2024-08-11T16:11:23.6805412Z kube-system   etcd-minikube                      1/1     Running   0          27s
+2024-08-11T16:11:23.6807152Z kube-system   kube-apiserver-minikube            1/1     Running   0          27s
+2024-08-11T16:11:23.6808719Z kube-system   kube-controller-manager-minikube   1/1     Running   0          27s
+2024-08-11T16:11:23.6810293Z kube-system   kube-proxy-8wrfz                   1/1     Running   0          13s
+2024-08-11T16:11:23.6811711Z kube-system   kube-scheduler-minikube            1/1     Running   0          27s
+2024-08-11T16:11:23.6813445Z kube-system   storage-provisioner                1/1     Running   0          13s
+2024-08-11T16:11:23.6898033Z ##[group]Run # minikube image build -t devopshint/node-app:latest .
+2024-08-11T16:11:23.6898858Z [36;1m# minikube image build -t devopshint/node-app:latest .[0m
+2024-08-11T16:11:23.6899563Z [36;1mset -e # Exit immediately if a command exits with a non-zero status[0m
+2024-08-11T16:11:23.6900224Z [36;1mexport SHELL=/bin/bash[0m
+2024-08-11T16:11:23.6900702Z [36;1meval $(minikube -p minikube docker-env)[0m
+2024-08-11T16:11:23.6901305Z [36;1mdocker build -f ./Dockerfile -t devopshint/node-app:latest .[0m
+2024-08-11T16:11:23.6901914Z [36;1mecho -n "verifying images:"[0m
+2024-08-11T16:11:23.6902346Z [36;1mdocker images         [0m
+2024-08-11T16:11:23.6967190Z shell: /usr/bin/bash -e {0}
+2024-08-11T16:11:23.6967608Z ##[endgroup]
+2024-08-11T16:11:24.2398642Z #0 building with "default" instance using docker driver
+2024-08-11T16:11:24.2399653Z 
+2024-08-11T16:11:24.2399977Z #1 [internal] load build definition from Dockerfile
+2024-08-11T16:11:24.2401356Z #1 transferring dockerfile: 183B done
+2024-08-11T16:11:24.2402030Z #1 DONE 0.0s
+2024-08-11T16:11:24.2402473Z 
+2024-08-11T16:11:24.2403255Z #2 [auth] library/node:pull token for registry-1.docker.io
+2024-08-11T16:11:24.3904728Z #2 DONE 0.0s
+2024-08-11T16:11:24.3905051Z 
+2024-08-11T16:11:24.3905465Z #3 [internal] load metadata for docker.io/library/node:14
+2024-08-11T16:11:24.6260580Z #3 DONE 0.5s
+2024-08-11T16:11:24.7464720Z 
+2024-08-11T16:11:24.7465417Z #4 [internal] load .dockerignore
+2024-08-11T16:11:24.7466490Z #4 transferring context: 2B done
+2024-08-11T16:11:24.7467423Z #4 DONE 0.0s
+2024-08-11T16:11:24.7468350Z 
+2024-08-11T16:11:24.7468571Z #5 [internal] load build context
+2024-08-11T16:11:24.7469300Z #5 transferring context: 43.67kB 0.0s done
+2024-08-11T16:11:24.7470076Z #5 DONE 0.0s
+2024-08-11T16:11:24.7470599Z 
+2024-08-11T16:11:24.7471435Z #6 [1/6] FROM docker.io/library/node:14@sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa
+2024-08-11T16:11:24.7473260Z #6 resolve docker.io/library/node:14@sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa done
+2024-08-11T16:11:24.7474982Z #6 sha256:2cafa3fbb0b6529ee4726b4f599ec27ee557ea3dea7019182323b3779959927f 2.21kB / 2.21kB done
+2024-08-11T16:11:24.7476212Z #6 sha256:2ff1d7c41c74a25258bfa6f0b8adb0a727f84518f55f65ca845ebc747976c408 7.34MB / 50.45MB 0.1s
+2024-08-11T16:11:24.7477574Z #6 sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa 776B / 776B done
+2024-08-11T16:11:24.7480300Z #6 sha256:1d12470fa662a2a5cb50378dcdc8ea228c1735747db410bbefb8e2d9144b5452 7.51kB / 7.51kB done
+2024-08-11T16:11:24.7482261Z #6 sha256:b253aeafeaa7e0671bb60008df01de101a38a045ff7bc656e3b0fbfc7c05cca5 0B / 7.86MB 0.1s
+2024-08-11T16:11:24.7484389Z #6 sha256:3d2201bd995cccf12851a50820de03d34a17011dcbb9ac9fdf3a50c952cbb131 0B / 10.00MB 0.1s
+2024-08-11T16:11:24.9596020Z #6 sha256:2ff1d7c41c74a25258bfa6f0b8adb0a727f84518f55f65ca845ebc747976c408 44.04MB / 50.45MB 0.3s
+2024-08-11T16:11:24.9598100Z #6 sha256:b253aeafeaa7e0671bb60008df01de101a38a045ff7bc656e3b0fbfc7c05cca5 7.86MB / 7.86MB 0.2s done
+2024-08-11T16:11:24.9599829Z #6 sha256:3d2201bd995cccf12851a50820de03d34a17011dcbb9ac9fdf3a50c952cbb131 10.00MB / 10.00MB 0.2s done
+2024-08-11T16:11:24.9601677Z #6 sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 8.39MB / 191.85MB 0.3s
+2024-08-11T16:11:24.9603363Z #6 sha256:1de76e268b103d05fa8960e0f77951ff54b912b63429c34f5d6adfd09f5f9ee2 13.76MB / 51.88MB 0.3s
+2024-08-11T16:11:25.1465656Z #6 sha256:2ff1d7c41c74a25258bfa6f0b8adb0a727f84518f55f65ca845ebc747976c408 50.45MB / 50.45MB 0.4s done
+2024-08-11T16:11:25.1467664Z #6 sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 46.14MB / 191.85MB 0.5s
+2024-08-11T16:11:25.1469716Z #6 sha256:1de76e268b103d05fa8960e0f77951ff54b912b63429c34f5d6adfd09f5f9ee2 30.85MB / 51.88MB 0.5s
+2024-08-11T16:11:25.1471429Z #6 extracting sha256:2ff1d7c41c74a25258bfa6f0b8adb0a727f84518f55f65ca845ebc747976c408
+2024-08-11T16:11:25.1473598Z #6 sha256:6f51ee005deac0d99898e41b8ce60ebf250ebe1a31a0b03f613aec6bbc9b83d8 4.19kB / 4.19kB 0.5s done
+2024-08-11T16:11:25.1475536Z #6 sha256:5f32ed3c3f278edda4fc571c880b5277355a29ae8f52b52cdf865f058378a590 0B / 35.24MB 0.5s
+2024-08-11T16:11:25.2464097Z #6 sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 65.01MB / 191.85MB 0.6s
+2024-08-11T16:11:25.2465802Z #6 sha256:1de76e268b103d05fa8960e0f77951ff54b912b63429c34f5d6adfd09f5f9ee2 44.04MB / 51.88MB 0.6s
+2024-08-11T16:11:25.2467885Z #6 sha256:5f32ed3c3f278edda4fc571c880b5277355a29ae8f52b52cdf865f058378a590 12.41MB / 35.24MB 0.6s
+2024-08-11T16:11:25.3719053Z #6 sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 83.89MB / 191.85MB 0.7s
+2024-08-11T16:11:25.3720740Z #6 sha256:1de76e268b103d05fa8960e0f77951ff54b912b63429c34f5d6adfd09f5f9ee2 51.88MB / 51.88MB 0.7s done
+2024-08-11T16:11:25.3722775Z #6 sha256:5f32ed3c3f278edda4fc571c880b5277355a29ae8f52b52cdf865f058378a590 28.31MB / 35.24MB 0.7s
+2024-08-11T16:11:25.3724161Z #6 sha256:0c8cc2f24a4dcb64e602e086fc9446b0a541e8acd9ad72d2e90df3ba22f158b3 0B / 2.29MB 0.7s
+2024-08-11T16:11:25.4725507Z #6 sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 96.47MB / 191.85MB 0.8s
+2024-08-11T16:11:25.4727181Z #6 sha256:5f32ed3c3f278edda4fc571c880b5277355a29ae8f52b52cdf865f058378a590 32.51MB / 35.24MB 0.8s
+2024-08-11T16:11:25.4728575Z #6 sha256:0c8cc2f24a4dcb64e602e086fc9446b0a541e8acd9ad72d2e90df3ba22f158b3 2.29MB / 2.29MB 0.8s done
+2024-08-11T16:11:25.4729543Z #6 sha256:0d27a8e861329007574c6766fba946d48e20d2c8e964e873de352603f22c4ceb 0B / 450B 0.8s
+2024-08-11T16:11:25.5740904Z #6 sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 121.26MB / 191.85MB 0.9s
+2024-08-11T16:11:25.5743031Z #6 sha256:5f32ed3c3f278edda4fc571c880b5277355a29ae8f52b52cdf865f058378a590 35.24MB / 35.24MB 0.9s done
+2024-08-11T16:11:25.5745041Z #6 sha256:0d27a8e861329007574c6766fba946d48e20d2c8e964e873de352603f22c4ceb 450B / 450B 0.8s done
+2024-08-11T16:11:25.6820783Z #6 sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 141.56MB / 191.85MB 1.0s
+2024-08-11T16:11:25.8455949Z #6 sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 182.45MB / 191.85MB 1.2s
+2024-08-11T16:11:26.2530268Z #6 sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 191.85MB / 191.85MB 1.5s done
+2024-08-11T16:11:27.1529409Z #6 extracting sha256:2ff1d7c41c74a25258bfa6f0b8adb0a727f84518f55f65ca845ebc747976c408 2.1s done
+2024-08-11T16:11:27.1531040Z #6 extracting sha256:b253aeafeaa7e0671bb60008df01de101a38a045ff7bc656e3b0fbfc7c05cca5
+2024-08-11T16:11:27.5389332Z #6 extracting sha256:b253aeafeaa7e0671bb60008df01de101a38a045ff7bc656e3b0fbfc7c05cca5 0.2s done
+2024-08-11T16:11:27.6351208Z #6 extracting sha256:3d2201bd995cccf12851a50820de03d34a17011dcbb9ac9fdf3a50c952cbb131
+2024-08-11T16:11:27.8579747Z #6 extracting sha256:3d2201bd995cccf12851a50820de03d34a17011dcbb9ac9fdf3a50c952cbb131 0.1s done
+2024-08-11T16:11:27.8581936Z #6 extracting sha256:1de76e268b103d05fa8960e0f77951ff54b912b63429c34f5d6adfd09f5f9ee2
+2024-08-11T16:11:29.8467789Z #6 extracting sha256:1de76e268b103d05fa8960e0f77951ff54b912b63429c34f5d6adfd09f5f9ee2 1.9s done
+2024-08-11T16:11:29.8469621Z #6 extracting sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569
+2024-08-11T16:11:35.0144487Z #6 extracting sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 5.2s
+2024-08-11T16:11:35.2286398Z #6 extracting sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 5.2s done
+2024-08-11T16:11:35.2288267Z #6 extracting sha256:6f51ee005deac0d99898e41b8ce60ebf250ebe1a31a0b03f613aec6bbc9b83d8 done
+2024-08-11T16:11:35.2289776Z #6 extracting sha256:5f32ed3c3f278edda4fc571c880b5277355a29ae8f52b52cdf865f058378a590
+2024-08-11T16:11:37.1397285Z #6 extracting sha256:5f32ed3c3f278edda4fc571c880b5277355a29ae8f52b52cdf865f058378a590 1.8s done
+2024-08-11T16:11:37.1399361Z #6 extracting sha256:0c8cc2f24a4dcb64e602e086fc9446b0a541e8acd9ad72d2e90df3ba22f158b3
+2024-08-11T16:11:37.3090498Z #6 extracting sha256:0c8cc2f24a4dcb64e602e086fc9446b0a541e8acd9ad72d2e90df3ba22f158b3 0.0s done
+2024-08-11T16:11:37.3092637Z #6 extracting sha256:0d27a8e861329007574c6766fba946d48e20d2c8e964e873de352603f22c4ceb done
+2024-08-11T16:11:37.3094004Z #6 DONE 12.6s
+2024-08-11T16:11:37.3094309Z 
+2024-08-11T16:11:37.3094720Z #7 [2/6] WORKDIR /usr/src/app
+2024-08-11T16:11:37.3096154Z #7 DONE 0.1s
+2024-08-11T16:11:37.4696352Z 
+2024-08-11T16:11:37.4697266Z #8 [3/6] COPY package*.json ./
+2024-08-11T16:11:37.4698227Z #8 DONE 0.0s
+2024-08-11T16:11:37.4698529Z 
+2024-08-11T16:11:37.4698815Z #9 [4/6] RUN npm install
+2024-08-11T16:11:39.4926865Z #9 1.935 npm notice created a lockfile as package-lock.json. You should commit this file.
+2024-08-11T16:11:39.4928152Z #9 1.941 npm WARN docker_web_app@1.0.0 No repository field.
+2024-08-11T16:11:39.4929271Z #9 1.946 npm WARN docker_web_app@1.0.0 No license field.
+2024-08-11T16:11:39.4930457Z #9 1.946 
+2024-08-11T16:11:39.4931242Z #9 1.947 added 64 packages from 41 contributors and audited 64 packages in 1.492s
+2024-08-11T16:11:39.4932351Z #9 1.970 
+2024-08-11T16:11:39.4932918Z #9 1.970 12 packages are looking for funding
+2024-08-11T16:11:39.4933498Z #9 1.970   run `npm fund` for details
+2024-08-11T16:11:39.4933920Z #9 1.970 
+2024-08-11T16:11:39.4934262Z #9 1.970 found 0 vulnerabilities
+2024-08-11T16:11:39.4934728Z #9 1.970 
+2024-08-11T16:11:39.4935051Z #9 DONE 2.0s
+2024-08-11T16:11:39.4935225Z 
+2024-08-11T16:11:39.4935400Z #10 [5/6] RUN npm install express
+2024-08-11T16:11:40.5679977Z #10 1.094 npm WARN docker_web_app@1.0.0 No repository field.
+2024-08-11T16:11:40.5681299Z #10 1.100 npm WARN docker_web_app@1.0.0 No license field.
+2024-08-11T16:11:40.5682041Z #10 1.100 
+2024-08-11T16:11:40.5682591Z #10 1.124 + express@4.19.2
+2024-08-11T16:11:40.5683314Z #10 1.124 updated 1 package and audited 64 packages in 0.585s
+2024-08-11T16:11:40.5683910Z #10 1.153 found 0 vulnerabilities
+2024-08-11T16:11:40.5684308Z #10 1.153 
+2024-08-11T16:11:40.5684881Z #10 DONE 1.2s
+2024-08-11T16:11:40.5685358Z 
+2024-08-11T16:11:40.5685559Z #11 [6/6] COPY . .
+2024-08-11T16:11:40.5686122Z #11 DONE 0.0s
+2024-08-11T16:11:40.7198806Z 
+2024-08-11T16:11:40.7199412Z #12 exporting to image
+2024-08-11T16:11:40.7200121Z #12 exporting layers
+2024-08-11T16:11:43.0202682Z #12 exporting layers 2.5s done
+2024-08-11T16:11:43.0446687Z #12 writing image sha256:dda0348181318ee436f94a1e67bd91f1ee5e20022d4f39b8a4ff1751034d89a3 done
+2024-08-11T16:11:43.0448480Z #12 naming to docker.io/devopshint/node-app:latest done
+2024-08-11T16:11:43.0449418Z #12 DONE 2.5s
+2024-08-11T16:11:43.0657694Z verifying images:REPOSITORY                                TAG        IMAGE ID       CREATED         SIZE
+2024-08-11T16:11:43.0659321Z devopshint/node-app                       latest     dda034818131   3 seconds ago   916MB
+2024-08-11T16:11:43.0660782Z registry.k8s.io/kube-apiserver            v1.30.0    c42f13656d0b   3 months ago    117MB
+2024-08-11T16:11:43.0662348Z registry.k8s.io/kube-scheduler            v1.30.0    259c8277fcbb   3 months ago    62MB
+2024-08-11T16:11:43.0663519Z registry.k8s.io/kube-controller-manager   v1.30.0    c7aad43836fa   3 months ago    111MB
+2024-08-11T16:11:43.0664504Z registry.k8s.io/kube-proxy                v1.30.0    a0bf559e280c   3 months ago    84.7MB
+2024-08-11T16:11:43.0665614Z registry.k8s.io/etcd                      3.5.12-0   3861cfcd7c04   6 months ago    149MB
+2024-08-11T16:11:43.0666428Z registry.k8s.io/coredns/coredns           v1.11.1    cbb01a7bd410   12 months ago   59.8MB
+2024-08-11T16:11:43.0667916Z registry.k8s.io/pause                     3.9        e6f181688397   22 months ago   744kB
+2024-08-11T16:11:43.0668865Z gcr.io/k8s-minikube/storage-provisioner   v5         6e38f40d628d   3 years ago     31.5MB
+2024-08-11T16:11:43.0724677Z ##[group]Run kubectl apply -f k8s-node-app.yaml
+2024-08-11T16:11:43.0725627Z [36;1mkubectl apply -f k8s-node-app.yaml[0m
+2024-08-11T16:11:43.0726793Z [36;1mkubectl wait --for=condition=ready pod -l app=nodejs-app[0m
+2024-08-11T16:11:43.0799244Z shell: /usr/bin/bash -e {0}
+2024-08-11T16:11:43.0799751Z ##[endgroup]
+2024-08-11T16:11:43.2436252Z deployment.apps/nodejs-app created
+2024-08-11T16:11:43.2633123Z service/nodejs-app-svc created
+2024-08-11T16:12:04.5444016Z pod/nodejs-app-85dc74cf9d-6hb4g condition met
+2024-08-11T16:12:04.5521915Z ##[group]Run minikube service list
+2024-08-11T16:12:04.5522867Z [36;1mminikube service list[0m
+2024-08-11T16:12:04.5523592Z [36;1mminikube service nodejs-app-svc --url[0m
+2024-08-11T16:12:04.5616144Z shell: /usr/bin/bash -e {0}
+2024-08-11T16:12:04.5616869Z ##[endgroup]
+2024-08-11T16:12:04.8226520Z |-------------|----------------|--------------|---------------------------|
+2024-08-11T16:12:04.8228618Z |  NAMESPACE  |      NAME      | TARGET PORT  |            URL            |
+2024-08-11T16:12:04.8230186Z |-------------|----------------|--------------|---------------------------|
+2024-08-11T16:12:04.8232801Z | default     | kubernetes     | No node port |                           |
+2024-08-11T16:12:04.8235105Z | default     | nodejs-app-svc | http/80      | http://192.168.49.2:30989 |
+2024-08-11T16:12:04.8236879Z | kube-system | kube-dns       | No node port |                           |
+2024-08-11T16:12:04.8238477Z |-------------|----------------|--------------|---------------------------|
+2024-08-11T16:12:05.0945966Z http://192.168.49.2:30989
+2024-08-11T16:12:05.1122217Z Post job cleanup.
+2024-08-11T16:12:05.2063298Z [command]/usr/bin/git version
+2024-08-11T16:12:05.2098880Z git version 2.46.0
+2024-08-11T16:12:05.2141482Z Temporarily overriding HOME='/home/runner/work/_temp/d4f43cc5-4916-43e5-a7a6-04f96eb39930' before making global git config changes
+2024-08-11T16:12:05.2143568Z Adding repository directory to the temporary git global config as a safe directory
+2024-08-11T16:12:05.2148547Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/EPAM-CICD-Lab1/EPAM-CICD-Lab1
+2024-08-11T16:12:05.2185448Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-08-11T16:12:05.2218408Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-08-11T16:12:05.2457651Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-08-11T16:12:05.2478669Z http.https://github.com/.extraheader
+2024-08-11T16:12:05.2490667Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2024-08-11T16:12:05.2522344Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-08-11T16:12:05.2982538Z Cleaning up orphan processes
