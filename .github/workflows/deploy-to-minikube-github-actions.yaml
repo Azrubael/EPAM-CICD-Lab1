@@ -31,6 +31,4 @@ jobs:
         run: |
             minikube service list
             minikube service nodejs-app --url
-            echo -n "------------------opening the service------------------"
-            curl $(minikube service nodejs-app --url)/version
 
